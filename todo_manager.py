@@ -33,6 +33,15 @@ for i, task in enumerate(display_tasks, start=1):
 #Show the total number of tasks remaining
 print(f"Total tasks remaining: {len(display_tasks)}")
 
-if len(display_tasks) < 0:
+if len(display_tasks) == 0:
+    
     print("All tasks have been completed!")
     
+    allow_user_to_add = input("Would you like to add a new task? (yes/no): ").strip().lower()
+    if allow_user_to_add == "yes":
+        new_task = input("Enter a new task: ")
+        new_task = new_task.strip()  # Remove leading/trailing whitespace
+        display_tasks.append(new_task)
+        display_tasks.sort()  # Sort the list alphabetically
+        print(f"Task '{new_task}' has been added.") 
+        
